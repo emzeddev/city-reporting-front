@@ -1,5 +1,5 @@
 <template>
-    <div class="mx-auto w-full h-[100vh] bg-gray-900 text-white">
+    <div class="mx-auto w-full h-[100vh] bg-gray-100 text-gray-900">
       <div class="grid grid-cols-12">
         <div class="col-span-12 lg:mt-20 mt-2">
           <div class="w-full h-full">
@@ -12,7 +12,7 @@
                     height="24"
                     viewBox="0 0 24 24"
                     fill="none"
-                    stroke="#fff"
+                    stroke="#000"
                     stroke-width="2"
                     stroke-linecap="round"
                     stroke-linejoin="round"
@@ -28,18 +28,18 @@
             </div>
             <nuxt-link
               to="/"
-              class="flex items-center justify-center lg:mt-20 md:mt-32 mt-20"
+              class="flex items-center justify-center lg:mt-20 md:mt-32 mt-20 text-gray-800 text-2xl font-bold"
             >
               گزارش گیری مشکلات شهری
             </nuxt-link>
             <div class="pt-5 flex items-center justify-center">
-              <h3 class="py-3">ساخت حساب کاربری</h3>
+              <h3 class="text-gray-900 py-3">ساخت حساب کاربری</h3>
             </div>
   
             <form @submit.prevent="submitForm()" class="flex items-center flex-col justify-center py-1">
-              <div class="relative text-sm border border-gray-700 rounded-full">
+              <div class="relative text-sm border border-gray-300 rounded-full">
                 <input
-                  class="w-full text-gray-800 dark:text-white p-4 md:pl-32 pl-20 bg-gray-100 dark:bg-gray-800 rounded-full"
+                  class="w-full text-gray-900 p-4 md:pl-32 pl-20 bg-gray-200 rounded-full"
                   type="text"
                   v-model="formData.name"
                   placeholder="نام خانوادگی "
@@ -47,9 +47,9 @@
               </div>
               <p v-if="errors.name" class="text-red-500">{{ errors.name }}</p>
   
-              <div class="relative mt-2 text-sm border border-gray-700 rounded-full">
+              <div class="relative mt-2 text-sm border border-gray-300 rounded-full">
                 <input
-                  class="w-full text-gray-800 dark:text-white p-4 md:pl-32 pl-20 bg-gray-100 dark:bg-gray-800 rounded-full"
+                  class="w-full text-gray-900 p-4 md:pl-32 pl-20 bg-gray-200 rounded-full"
                   type="text"
                   v-model="formData.mobile"
                   placeholder="شماره موبایل"
@@ -60,13 +60,13 @@
               <div class="relative mt-4">
                 <button
                   type="submit" v-if="registerLoading == false"
-                  class="bg-blue-600 px-10 text-white py-4 w-full rounded-full tracking-wide font-semibold focus:outline-none focus:shadow-outline hover:bg-blue-800 shadow-lg"
+                  class="bg-blue-500 px-10 text-white py-4 w-full rounded-full tracking-wide font-semibold focus:outline-none hover:bg-blue-700 shadow-lg"
                 >
                   ارسال کد
                 </button>
                 <button
                   type="button" v-if="registerLoading == true" disabled 
-                  class="bg-blue-600 text-white px-10 py-4 w-full rounded-full tracking-wide font-semibold focus:outline-none focus:shadow-outline hover:bg-blue-800 shadow-lg"
+                  class="bg-blue-500 text-white px-10 py-4 w-full rounded-full tracking-wide font-semibold focus:outline-none hover:bg-blue-700 shadow-lg"
                 >
                   <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
                 </button>
@@ -76,13 +76,14 @@
             <div class="flex items-center justify-center py-2 text-xs">
               <h4>
                 <span class="text-blue-500 font-semibold">آیا حساب کاربری دارید؟ </span>
-                <nuxt-link to="/login" class="text-white">وارد شوید</nuxt-link>
+                <nuxt-link to="/login" class="text-gray-900">وارد شوید</nuxt-link>
               </h4>
             </div>
           </div>
         </div>
       </div>
     </div>
+
 </template>
 
   
@@ -150,7 +151,7 @@
   
       if(data.value.status == 200) {
         registerData.value = formData.value
-        router.push("/auth/otp?action=register")
+        router.push("/otp?action=register")
       }else {
         alert(data.value.message)
       }

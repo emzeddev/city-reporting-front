@@ -15,6 +15,8 @@ export default defineNuxtRouteMiddleware(async () => {
                 Authorization: `Bearer ${token}`,
             },
         });
+        
+        // console.log(user)
 
         
 

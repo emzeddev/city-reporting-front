@@ -1,12 +1,11 @@
 <template>
 
-    <div class="min-h-screen bg-gray-900 text-white flex flex-col">
+    <div class="font-amir bg-stone-50">
         <Header />
-
             <slot />
-
         <Footer />
     </div>
+    
 </template>
 
 <script setup>

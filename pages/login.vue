@@ -1,83 +1,84 @@
 <template>
-    <div class="mx-auto w-full h-[100vh] bg-gray-900 transition-colors duration-300">
-      <div class="grid grid-cols-12">
-        <div class="col-span-12 lg:mt-20 mt-2">
-          <div class="w-full h-full">
-            <div class="flex items-center justify-start lg:px-12 px-2">
-              <a href="javascript:void(0)" @click="goBack()">
-                <button class="p-2 bg-blue-500 dark:bg-blue-700 rounded-lg">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="#fff"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-right"
-                  >
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M5 12l14 0" />
-                    <path d="M13 18l6 -6" />
-                    <path d="M13 6l6 6" />
-                  </svg>
-                </button>
-              </a>
-            </div>
-            <nuxt-link
-              to="/"
-              class="flex items-center justify-center lg:mt-20 md:mt-32 mt-20 text-white text-2xl font-bold"
-            >
-              گزارش گیری مشکلات شهری
-            </nuxt-link>
-            <div class="pt-5 flex items-center justify-center">
-              <h3 class="text-stone-800 dark:text-white py-3">ورود به حساب کاربری</h3>
-            </div>
-  
-            <form
-             @submit.prevent="submitForm()"
-             class="flex items-center flex-col justify-center mt-1 py-2">
-              <div
-                class="relative text-sm border border-gray-200 dark:border-gray-600 rounded-full"
+    <div class="mx-auto w-full h-[100vh] bg-gray-100 transition-colors duration-300">
+  <div class="grid grid-cols-12">
+    <div class="col-span-12 lg:mt-20 mt-2">
+      <div class="w-full h-full">
+        <div class="flex items-center justify-start lg:px-12 px-2">
+          <a href="javascript:void(0)" @click="goBack()">
+            <button class="p-2 bg-blue-500 hover:bg-blue-700 rounded-lg">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#000"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
               >
-                <input
-                  class="w-full text-gray-800 dark:text-white p-4 md:pl-32 pl-20 bg-gray-100 dark:bg-gray-800 rounded-full"
-                  type="text"
-                  v-model="formData.mobile"
-                  placeholder="شماره موبایل"
-                />
-              </div>
-              <p v-if="errors.mobile" class="text-red-500">{{ errors.mobile }}</p>
-  
-              <div class="relative mt-4">
-                  <button
-                    type="submit" v-if="loginLoading == false"
-                    class="bg-blue-600 dark:bg-blue-800 px-10 text-white py-4 w-full rounded-full tracking-wide font-semibold font-display focus:outline-none focus:shadow-outline hover:bg-blue-800 dark:hover:bg-blue-900 shadow-lg"
-                  >
-                    ارسال کد
-                  </button>
-                  <button
-                  type="button" v-if="loginLoading == true" disabled 
-                    class="bg-blue-600 dark:bg-blue-800 text-white px-10 py-4 w-full rounded-full tracking-wide font-semibold font-display focus:outline-none focus:shadow-outline hover:bg-blue-800 dark:hover:bg-blue-900 shadow-lg"
-                  >
-                    <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
-                  </button>
-                </div>
-  
-            </form>
-            <div class="flex items-center justify-center py-2 text-xs">
-              <h4>
-                <span class="text-blue-500 font-semibold">آیا حساب کاربری ندارید ؟ </span>
-                <nuxt-link to="/register" class="text-gray-800 dark:text-white">ثبت نام کنید</nuxt-link>
-              </h4>
-            </div>
-  
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M5 12l14 0" />
+                <path d="M13 18l6 -6" />
+                <path d="M13 6l6 6" />
+              </svg>
+            </button>
+          </a>
+        </div>
+        <nuxt-link
+          to="/"
+          class="flex items-center justify-center lg:mt-20 md:mt-32 mt-20 text-gray-800 text-2xl font-bold"
+        >
+          گزارش گیری مشکلات شهری
+        </nuxt-link>
+        <div class="pt-5 flex items-center justify-center">
+          <h3 class="text-gray-800 py-3">ورود به حساب کاربری</h3>
+        </div>
+
+        <form
+          @submit.prevent="submitForm()"
+          class="flex items-center flex-col justify-center mt-1 py-2"
+        >
+          <div class="relative text-sm border border-gray-300 rounded-full">
+            <input
+              class="w-full text-gray-900 p-4 md:pl-32 pl-20 bg-gray-200 rounded-full"
+              type="text"
+              v-model="formData.mobile"
+              placeholder="شماره موبایل"
+            />
           </div>
+          <p v-if="errors.mobile" class="text-red-500">{{ errors.mobile }}</p>
+
+          <div class="relative mt-4">
+            <button
+              type="submit"
+              v-if="loginLoading == false"
+              class="bg-blue-600 hover:bg-blue-700 px-10 text-white py-4 w-full rounded-full tracking-wide font-semibold focus:outline-none focus:shadow-outline shadow-lg"
+            >
+              ارسال کد
+            </button>
+            <button
+              type="button"
+              v-if="loginLoading == true"
+              disabled
+              class="bg-blue-600 text-white px-10 py-4 w-full rounded-full tracking-wide font-semibold focus:outline-none focus:shadow-outline shadow-lg"
+            >
+              <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+            </button>
+          </div>
+        </form>
+
+        <div class="flex items-center justify-center py-2 text-xs">
+          <h4>
+            <span class="text-blue-500 font-semibold">آیا حساب کاربری ندارید ؟ </span>
+            <nuxt-link to="/register" class="text-gray-800">ثبت نام کنید</nuxt-link>
+          </h4>
         </div>
       </div>
     </div>
+  </div>
+</div>
+
 </template>
 
   
@@ -132,7 +133,7 @@
   
       if(data.value.status == 200) {
         loginData.value = formData.value
-        router.push("/auth/otp?action=login")
+        router.push("/otp?action=login")
       }else {
         alert(data.value.message)
       }

@@ -28,7 +28,7 @@ onMounted(() => {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgb(30, 30, 30, 1);
+  background: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,7 +38,7 @@ onMounted(() => {
 .spinner {
   width: 50px;
   height: 50px;
-  border: 5px solid #333;
+  border: 5px solid #eee;
   border-top: 5px solid #2c43f6;
   border-radius: 50%;
   animation: spin 1s linear infinite;
